@@ -57,11 +57,6 @@
                     <span class="nav-label">Portfolio</span>
                     <span class="nav-underline"></span>
                 </a>
-                <a href="#book" class="nav-link magnetic-link" data-nav="book">
-                    <span class="nav-num">04</span>
-                    <span class="nav-label">Book Now</span>
-                    <span class="nav-underline"></span>
-                </a>
             </nav>
 
             <button class="nav-menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
@@ -78,7 +73,6 @@
             <a href="#home" class="mobile-menu-link" data-nav="home"><span class="mm-num">01</span><span class="mm-text">Home</span></a>
             <a href="#about" class="mobile-menu-link" data-nav="about"><span class="mm-num">02</span><span class="mm-text">About</span></a>
             <a href="#portfolio" class="mobile-menu-link" data-nav="portfolio"><span class="mm-num">03</span><span class="mm-text">Portfolio</span></a>
-            <a href="#book" class="mobile-menu-link" data-nav="book"><span class="mm-num">04</span><span class="mm-text">Book Now</span></a>
             <div class="mobile-menu-footer">
                 <p>© 2026 Sanjay's Lightworks</p>
             </div>
@@ -90,7 +84,6 @@
         <div class="progress-dot" data-target="home"></div>
         <div class="progress-dot" data-target="about"></div>
         <div class="progress-dot" data-target="portfolio"></div>
-        <div class="progress-dot" data-target="book"></div>
     </div>
 
     <!-- SECTION SCROLL LABEL -->
@@ -146,7 +139,9 @@
                 <!-- RIGHT COLUMN: SMALL TEXT -->
                 <div class="hero-side hero-side-right">
                     <p class="hero-meta reveal-text" style="text-align: right;">
-                        MISSISSAUGA · CANADA
+                        MISSISSAUGA · CANADA<br>
+                        <span class="meta-dot"></span>
+                        EST. 2015
                     </p>
                 </div>
 
@@ -238,18 +233,18 @@
                                 </div>
                                 <div class="skill-item reveal-up">
                                     <span class="skill-num">02</span>
-                                    <h4 class="skill-name">Traditional Candids</h4>
-                                    <p class="skill-desc">Unposed, honest moments captured as they unfold.</p>
+                                    <h4 class="skill-name">Fashion</h4>
+                                    <p class="skill-desc">Editorial stories for luxury brands and magazines.</p>
                                 </div>
                                 <div class="skill-item reveal-up">
                                     <span class="skill-num">03</span>
-                                    <h4 class="skill-name">Event</h4>
-                                    <p class="skill-desc">Full coverage that captures the story of your occasion.</p>
+                                    <h4 class="skill-name">Documentary</h4>
+                                    <p class="skill-desc">Narratives that preserve culture and humanity.</p>
                                 </div>
                                 <div class="skill-item reveal-up">
                                     <span class="skill-num">04</span>
-                                    <h4 class="skill-name">Themed Photography</h4>
-                                    <p class="skill-desc">Concept-driven shoots built around a distinct vision.</p>
+                                    <h4 class="skill-name">Architecture</h4>
+                                    <p class="skill-desc">Geometric studies of light, form, and structure.</p>
                                 </div>
                             </div>
                         </div>
@@ -548,74 +543,6 @@
 
                     </div>
                 </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==================== BOOK NOW SECTION ==================== -->
-        <section id="book" class="section section-book" data-section="book">
-
-            <div class="book-container">
-
-                <!-- SECTION HEADER -->
-                <div class="section-header">
-                    <div class="section-num reveal-text">04 / BOOK NOW</div>
-                    <h2 class="section-title">
-                        <span class="st-line"><span class="st-word reveal-word">RESERVE</span></span>
-                        <span class="st-line"><span class="st-word reveal-word italic">your</span></span>
-                        <span class="st-line"><span class="st-word reveal-word">SESSION</span></span>
-                    </h2>
-                    <p class="book-intro reveal-up">Pick a date and time that works for you, share a few details about the shoot, and I'll follow up to confirm.</p>
-                </div>
-
-                <!-- BOOKING FORM -->
-                <form class="booking-form reveal-up" id="bookingForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="bookDate">Date</label>
-                            <input type="date" id="bookDate" name="date" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="bookTime">Time</label>
-                            <input type="time" id="bookTime" name="time" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="bookName">Name</label>
-                            <input type="text" id="bookName" name="name" placeholder="Your full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="bookEmail">Email</label>
-                            <input type="email" id="bookEmail" name="email" placeholder="you@example.com" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group form-group-full">
-                        <label for="bookPurpose">Purpose of Booking</label>
-                        <textarea id="bookPurpose" name="purpose" rows="4" placeholder="Tell me a bit about the shoot you have in mind — occasion, location, number of people, etc." required></textarea>
-                    </div>
-
-                    <input type="hidden" name="_subject" value="New Booking Request — Sanjay's Lightworks">
-
-                    <div class="form-submit-row">
-                        <button type="submit" class="btn btn-primary magnetic-btn" id="bookSubmitBtn">
-                            <span class="btn-text">SUBMIT REQUEST</span>
-                            <span class="btn-arrow">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                                </svg>
-                            </span>
-                            <span class="btn-bg"></span>
-                        </button>
-                        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-                    </div>
-
-                </form>
 
             </div>
 

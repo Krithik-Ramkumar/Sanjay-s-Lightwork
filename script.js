@@ -30,6 +30,7 @@
         initGallery();
         initKeyboardNav();
         initSectionTracking();
+        initBookingForm();
     }
 
     /* ========================================================================
@@ -213,7 +214,7 @@
             }
         });
 
-        const sectionNumbers = { home: '01', about: '02', portfolio: '03' };
+        const sectionNumbers = { home: '01', about: '02', portfolio: '03', book: '04' };
 
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
@@ -299,7 +300,8 @@
         const sectionLabels = {
             home: 'HOME',
             about: 'ABOUT',
-            portfolio: 'WORK'
+            portfolio: 'WORK',
+            book: 'BOOK NOW'
         };
         window.addEventListener('active-section', (e) => {
             const id = e.detail.id;
@@ -605,6 +607,78 @@
                     link.click();
                 }
             });
+        });
+    }
+
+    /* ========================================================================
+       BOOK NOW — booking form submission (emails the owner via Formspree)
+       ======================================================================== */
+    function initBookingForm() {
+        const form = document.getElementById('bookingForm');
+        if (!form) return;
+
+        const dateInput = document.getElementById('bookDate');
+        if (dateInput) {
+            // Prevent picking a date in the past
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            dateInput.min = `${yyyy}-${mm}-${dd}`;
+        }
+
+        const submitBtn = document.getElementById('bookSubmitBtn');
+        const statusEl = document.getElementById('formStatus');
+        const btnTextEl = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (form.action.includes('YOUR_FORM_ID')) {
+                if (statusEl) {
+                    statusEl.textContent = 'Booking form is not connected to an email service yet. See setup instructions.';
+                    statusEl.className = 'form-status error';
+                }
+                return;
+            }
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            if (submitBtn) submitBtn.setAttribute('disabled', 'true');
+            if (btnTextEl) btnTextEl.textContent = 'SENDING...';
+            if (statusEl) {
+                statusEl.textContent = '';
+                statusEl.className = 'form-status';
+            }
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    if (statusEl) {
+                        statusEl.textContent = 'Thanks — your booking request has been sent. I\'ll be in touch soon.';
+                        statusEl.className = 'form-status success';
+                    }
+                    form.reset();
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (err) {
+                if (statusEl) {
+                    statusEl.textContent = 'Something went wrong sending your request. Please try again or email directly.';
+                    statusEl.className = 'form-status error';
+                }
+            } finally {
+                if (submitBtn) submitBtn.removeAttribute('disabled');
+                if (btnTextEl) btnTextEl.textContent = 'SUBMIT REQUEST';
+            }
         });
     }
 
