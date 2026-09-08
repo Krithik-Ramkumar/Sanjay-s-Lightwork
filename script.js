@@ -322,8 +322,8 @@
         const dots = document.querySelectorAll('.progress-dot');
 
         const options = {
-            threshold: 0.4,
-            rootMargin: '-10% 0px -20% 0px'
+            threshold: 0.3,
+            rootMargin: '-10% 0px -30% 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -331,8 +331,13 @@
                 if (entry.isIntersecting) {
                     const id = entry.target.id;
 
-                    navLinks.forEach(l => l.classList.toggle('active', l.dataset.nav === id));
-                    dots.forEach(d => d.classList.toggle('active', d.dataset.target === id));
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    const activeLink = document.querySelector(`.nav-link[data-nav="${id}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+
+                    dots.forEach(d => d.classList.remove('active'));
+                    const activeDot = document.querySelector(`.progress-dot[data-target="${id}"]`);
+                    if (activeDot) activeDot.classList.add('active');
 
                     window.dispatchEvent(new CustomEvent('active-section', { detail: { id } }));
                 }
@@ -340,6 +345,41 @@
         }, options);
 
         sections.forEach(s => observer.observe(s));
+
+        // Scroll-based fallback for smoother navigation updates
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollPosition = window.scrollY + window.innerHeight / 2;
+                    
+                    let currentSection = '';
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.offsetHeight;
+                        
+                        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                            currentSection = section.id;
+                        }
+                    });
+
+                    if (currentSection) {
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        const activeLink = document.querySelector(`.nav-link[data-nav="${currentSection}"]`);
+                        if (activeLink) activeLink.classList.add('active');
+
+                        dots.forEach(d => d.classList.remove('active'));
+                        const activeDot = document.querySelector(`.progress-dot[data-target="${currentSection}"]`);
+                        if (activeDot) activeDot.classList.add('active');
+
+                        window.dispatchEvent(new CustomEvent('active-section', { detail: { id: currentSection } }));
+                    }
+                    
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
     }
 
     /* ========================================================================
