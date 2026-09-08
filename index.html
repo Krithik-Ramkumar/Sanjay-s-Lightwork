@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sanjay's Lightworks — Photography Portfolio. Minimalist, cinematic, timeless.">
+    <title>Sanjay's Lightworks — Photography Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor cursor-dot" aria-hidden="true"></div>
+    <div class="cursor cursor-ring" aria-hidden="true">
+        <span class="cursor-text">VIEW</span>
+    </div>
+
+    <!-- PAGE TRANSITION OVERLAY -->
+    <div class="page-transition" aria-hidden="true">
+        <div class="transition-wipe transition-wipe-1"></div>
+        <div class="transition-wipe transition-wipe-2"></div>
+        <div class="transition-counter"><span id="transitionCount">01</span><span>/03</span></div>
+    </div>
+
+    <!-- LOADING SCREEN -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-text"><span class="loader-letter">S</span><span class="loader-letter">A</span><span class="loader-letter">N</span><span class="loader-letter">J</span><span class="loader-letter">A</span><span class="loader-letter">Y</span></div>
+            <div class="loader-bar"><div class="loader-bar-fill" id="loaderBarFill"></div></div>
+            <div class="loader-percentage" id="loaderPercentage">0%</div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <header class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo magnetic-link" data-nav="home">
+                <span class="logo-text">Sanjay's Lightworks</span>
+            </a>
+            
+            <nav class="nav-links" role="navigation">
+                <a href="#home" class="nav-link magnetic-link active" data-nav="home">
+                    <span class="nav-num">01</span>
+                    <span class="nav-label">Home</span>
+                    <span class="nav-underline"></span>
+                </a>
+                <a href="#about" class="nav-link magnetic-link" data-nav="about">
+                    <span class="nav-num">02</span>
+                    <span class="nav-label">About</span>
+                    <span class="nav-underline"></span>
+                </a>
+                <a href="#portfolio" class="nav-link magnetic-link" data-nav="portfolio">
+                    <span class="nav-num">03</span>
+                    <span class="nav-label">Portfolio</span>
+                    <span class="nav-underline"></span>
+                </a>
+            </nav>
+
+            <button class="nav-menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+                <span class="menu-line menu-line-1"></span>
+                <span class="menu-line menu-line-2"></span>
+                <span class="menu-line menu-line-3"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-inner">
+            <a href="#home" class="mobile-menu-link" data-nav="home"><span class="mm-num">01</span><span class="mm-text">Home</span></a>
+            <a href="#about" class="mobile-menu-link" data-nav="about"><span class="mm-num">02</span><span class="mm-text">About</span></a>
+            <a href="#portfolio" class="mobile-menu-link" data-nav="portfolio"><span class="mm-num">03</span><span class="mm-text">Portfolio</span></a>
+            <div class="mobile-menu-footer">
+                <p>© 2026 Sanjay's Lightworks</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROGRESS INDICATOR -->
+    <div class="progress-indicator" aria-hidden="true">
+        <div class="progress-dot" data-target="home"></div>
+        <div class="progress-dot" data-target="about"></div>
+        <div class="progress-dot" data-target="portfolio"></div>
+    </div>
+
+    <!-- SECTION SCROLL LABEL -->
+    <div class="scroll-label" aria-hidden="true">
+        <span class="scroll-label-text" id="scrollLabelText">HOME</span>
+        <span class="scroll-label-line"></span>
+    </div>
+
+    <main>
+
+        <!-- ==================== HOME SECTION ==================== -->
+        <section id="home" class="section section-home" data-section="home">
+            
+            <!-- BACKGROUND GRID -->
+            <div class="bg-grid" aria-hidden="true"></div>
+            
+            <!-- FLOATING ELEMENTS -->
+            <div class="floating-shapes" aria-hidden="true">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+
+            <!-- SCROLL CUE -->
+            <div class="scroll-cue" aria-hidden="true">
+                <span class="scroll-text">SCROLL</span>
+                <span class="scroll-line"></span>
+            </div>
+
+            <!-- YEAR -->
+            <div class="home-year reveal-text" aria-hidden="true">2026</div>
+
+            <!-- MAIN HERO CONTENT -->
+            <div class="hero-container">
+                
+                <!-- LEFT COLUMN: SMALL TEXT -->
+                <div class="hero-side hero-side-left">
+                    <p class="hero-meta reveal-text">
+                        <span class="meta-dot"></span>
+                        AVAILABLE FOR COMMISSIONS
+                    </p>
+                </div>
+
+                <!-- CENTER: HERO HEADLINE -->
+                <div class="hero-center">
+                    <h1 class="hero-title">
+                        <span class="hero-line"><span class="hero-word reveal-word">CINEMATIC</span></span>
+                        <span class="hero-line"><span class="hero-word reveal-word italic">vision</span></span>
+                        <span class="hero-line"><span class="hero-word reveal-word">IN&nbsp;BLACK&nbsp;&&nbsp;WHITE</span></span>
+                    </h1>
+                </div>
+
+                <!-- RIGHT COLUMN: SMALL TEXT -->
+                <div class="hero-side hero-side-right">
+                    <p class="hero-meta reveal-text" style="text-align: right;">
+                        MISSISSAUGA · CANADA<br>
+                        <span class="meta-dot"></span>
+                        EST. 2015
+                    </p>
+                </div>
+
+                <!-- BOTTOM BAR -->
+                <div class="hero-bottom reveal-up">
+                    <div class="hero-bottom-left">
+                        <p class="hero-description">
+                            A visual storyteller specializing in portrait, fashion, and documentary photography. 
+                            Capturing moments that transcend time through the timeless language of monochrome.
+                        </p>
+                    </div>
+                    <div class="hero-bottom-right">
+                        <div class="hero-cta-wrapper">
+                            <a href="#portfolio" class="btn btn-primary magnetic-btn" data-nav="portfolio">
+                                <span class="btn-text">VIEW PORTFOLIO</span>
+                                <span class="btn-arrow">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </span>
+                                <span class="btn-bg"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== ABOUT SECTION ==================== -->
+        <section id="about" class="section section-about" data-section="about">
+            
+            <div class="about-container">
+
+                <!-- SECTION HEADER -->
+                <div class="section-header">
+                    <div class="section-num reveal-text">02 / ABOUT</div>
+                    <h2 class="section-title">
+                        <span class="st-line"><span class="st-word reveal-word">THE ARTIST</span></span>
+                        <span class="st-line"><span class="st-word reveal-word italic">behind</span></span>
+                        <span class="st-line"><span class="st-word reveal-word">THE&nbsp;LENS</span></span>
+                    </h2>
+                </div>
+
+                <!-- ABOUT GRID -->
+                <div class="about-grid">
+
+                    <!-- ABOUT IMAGE -->
+                    <div class="about-image-wrapper reveal-up">
+                        <div class="about-image magnetic-img">
+                            <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Elegant%20black%20and%20white%20portrait%20of%20a%20photographer%20Indian%20male%20holding%20camera%20dramatic%20lighting%20editorial%20style%20cinematic&image_size=portrait_4_3" 
+                                 alt="Portrait of Sanjay, photographer"
+                                 loading="lazy">
+                            <div class="img-overlay"></div>
+                            <div class="img-frame"></div>
+                            <div class="img-caption">
+                                <span>SELF PORTRAIT</span>
+                                <span>2026</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ABOUT CONTENT -->
+                    <div class="about-content">
+                        
+                        <div class="about-bio reveal-up">
+                            <p>
+                                Based in Mississauga, I have spent over a decade refining my craft—documenting weddings, 
+                                photographing editorial campaigns, and capturing portraits that speak louder than words. 
+                                My work has been featured in Vogue, Elle, National Geographic, and numerous international 
+                                galleries.
+                            </p>
+                            <p>
+                                Every frame I compose is a meditation on light and shadow, contrast and composition. 
+                                I believe the most powerful photographs are not seen—they are felt. They linger in memory 
+                                like half-remembered dreams.
+                            </p>
+                        </div>
+
+                        <!-- SKILLS / EXPERTISE -->
+                        <div class="about-skills">
+                            <h3 class="skills-title reveal-text">EXPERTISE</h3>
+                            <div class="skills-grid">
+                                <div class="skill-item reveal-up">
+                                    <span class="skill-num">01</span>
+                                    <h4 class="skill-name">Portrait</h4>
+                                    <p class="skill-desc">Intimate character studies that reveal the soul.</p>
+                                </div>
+                                <div class="skill-item reveal-up">
+                                    <span class="skill-num">02</span>
+                                    <h4 class="skill-name">Fashion</h4>
+                                    <p class="skill-desc">Editorial stories for luxury brands and magazines.</p>
+                                </div>
+                                <div class="skill-item reveal-up">
+                                    <span class="skill-num">03</span>
+                                    <h4 class="skill-name">Documentary</h4>
+                                    <p class="skill-desc">Narratives that preserve culture and humanity.</p>
+                                </div>
+                                <div class="skill-item reveal-up">
+                                    <span class="skill-num">04</span>
+                                    <h4 class="skill-name">Architecture</h4>
+                                    <p class="skill-desc">Geometric studies of light, form, and structure.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ABOUT CTA -->
+                        <div class="about-cta reveal-up">
+                            <a href="#portfolio" class="btn btn-outline magnetic-btn" data-nav="portfolio">
+                                <span class="btn-text">EXPLORE THE WORK</span>
+                                <span class="btn-arrow">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== PORTFOLIO SECTION ==================== -->
+        <section id="portfolio" class="section section-portfolio" data-section="portfolio">
+            
+            <div class="portfolio-container">
+
+                <!-- SECTION HEADER -->
+                <div class="section-header portfolio-header">
+                    <div class="section-num reveal-text">03 / PORTFOLIO</div>
+                    <h2 class="section-title">
+                        <span class="st-line"><span class="st-word reveal-word">SELECTED</span></span>
+                        <span class="st-line"><span class="st-word reveal-word italic">works</span></span>
+                        <span class="st-line"><span class="st-word reveal-word">2020&nbsp;—&nbsp;2026</span></span>
+                    </h2>
+                </div>
+
+                <!-- GALLERY -->
+                <div class="gallery" id="gallery">
+
+                    <!-- GALLERY IMAGES CONTAINER -->
+                    <div class="gallery-stage" id="galleryStage">
+                        
+                        <!-- IMAGE SLIDES -->
+                        <div class="gallery-slides" id="gallerySlides">
+                            
+                            <div class="gallery-slide active" data-index="0">
+                                <div class="slide-inner">
+                                    <div class="slide-image-wrap">
+                                        <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Dramatic%20black%20and%20white%20portrait%20photography%20woman%20face%20high%20contrast%20studio%20lighting%20editorial%20fashion%20cinematic&image_size=landscape_16_9" 
+                                             alt="Whispers of Light — Portrait Series"
+                                             class="slide-image">
+                                        <div class="slide-reveal"></div>
+                                        <div class="slide-gradient"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gallery-slide" data-index="1">
+                                <div class="slide-inner">
+                                    <div class="slide-image-wrap">
+                                        <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Black%20and%20white%20fashion%20editorial%20photography%20elegant%20dress%20movement%20motion%20blur%20dramatic%20studio%20luxury%20monochrome&image_size=landscape_16_9" 
+                                             alt="Silhouette in Motion — Fashion Editorial"
+                                             class="slide-image">
+                                        <div class="slide-reveal"></div>
+                                        <div class="slide-gradient"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gallery-slide" data-index="2">
+                                <div class="slide-inner">
+                                    <div class="slide-image-wrap">
+                                        <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Black%20and%20white%20urban%20street%20photography%20city%20crowd%20reflections%20pedestrians%20crosswalk%20moody%20atmospheric%20cinematic%20monochrome%20documentary&image_size=landscape_16_9" 
+                                             alt="Urban Rhythms — Documentary Series"
+                                             class="slide-image">
+                                        <div class="slide-reveal"></div>
+                                        <div class="slide-gradient"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gallery-slide" data-index="3">
+                                <div class="slide-inner">
+                                    <div class="slide-image-wrap">
+                                        <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Black%20and%20white%20architectural%20photography%20modern%20building%20geometry%20lines%20shadows%20minimalist%20abstract%20monochrome&image_size=landscape_16_9" 
+                                             alt="Geometry of Light — Architecture Series"
+                                             class="slide-image">
+                                        <div class="slide-reveal"></div>
+                                        <div class="slide-gradient"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gallery-slide" data-index="4">
+                                <div class="slide-inner">
+                                    <div class="slide-image-wrap">
+                                        <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Dramatic%20black%20and%20white%20wedding%20photography%20couple%20embrace%20silhouette%20golden%20hour%20converted%20monochrome%20emotional&image_size=landscape_16_9" 
+                                             alt="Eternal Vows — Wedding Collection"
+                                             class="slide-image">
+                                        <div class="slide-reveal"></div>
+                                        <div class="slide-gradient"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gallery-slide" data-index="5">
+                                <div class="slide-inner">
+                                    <div class="slide-image-wrap">
+                                        <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Black%20and%20white%20fine%20art%20landscape%20photography%20mountains%20fog%20misty%20minimalist%20zen%20moody%20atmospheric%20monochrome&image_size=landscape_16_9" 
+                                             alt="Solitude — Fine Art Landscape"
+                                             class="slide-image">
+                                        <div class="slide-reveal"></div>
+                                        <div class="slide-gradient"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- GALLERY INFO (TITLE + DESCRIPTION) -->
+                        <div class="gallery-info" id="galleryInfo">
+                            
+                            <div class="info-slides">
+                                
+                                <div class="info-slide active" data-index="0">
+                                    <div class="info-cat">01 / PORTRAIT</div>
+                                    <h3 class="info-title">Whispers of Light</h3>
+                                    <p class="info-desc">
+                                        An exploration of human expression through the interplay of shadow and illumination. 
+                                        Each portrait in this series seeks to capture a fleeting moment of vulnerability, 
+                                        truth, and quiet strength.
+                                    </p>
+                                    <div class="info-meta">
+                                        <span>2025</span><span class="meta-sep">·</span><span>12 Frames</span><span class="meta-sep">·</span><span>Studio Series</span>
+                                    </div>
+                                </div>
+
+                                <div class="info-slide" data-index="1">
+                                    <div class="info-cat">02 / FASHION</div>
+                                    <h3 class="info-title">Silhouette in Motion</h3>
+                                    <p class="info-desc">
+                                        A fashion editorial collaboration with couture designer Priya Mehta. 
+                                        The series explores the poetry of fabric in motion—capturing gestures of 
+                                        elegance frozen within a single frame.
+                                    </p>
+                                    <div class="info-meta">
+                                        <span>2024</span><span class="meta-sep">·</span><span>18 Frames</span><span class="meta-sep">·</span><span>Vogue India</span>
+                                    </div>
+                                </div>
+
+                                <div class="info-slide" data-index="2">
+                                    <div class="info-cat">03 / DOCUMENTARY</div>
+                                    <h3 class="info-title">Urban Rhythms</h3>
+                                    <p class="info-desc">
+                                        A candid study of city life across seasons and weather. Moments of quiet reflection 
+                                        caught between the rush of crowds—rain-slicked streets, midday laughter, and the 
+                                        small dramas that define the urban experience.
+                                    </p>
+                                    <div class="info-meta">
+                                        <span>2022-2024</span><span class="meta-sep">·</span><span>47 Frames</span><span class="meta-sep">·</span><span>National Geographic</span>
+                                    </div>
+                                </div>
+
+                                <div class="info-slide" data-index="3">
+                                    <div class="info-cat">04 / ARCHITECTURE</div>
+                                    <h3 class="info-title">Geometry of Light</h3>
+                                    <p class="info-desc">
+                                        Buildings are not merely structures—they are music frozen in stone and steel. 
+                                        This series studies the dialogue between sunlight and the contemporary architecture 
+                                        reshaping India's urban landscape.
+                                    </p>
+                                    <div class="info-meta">
+                                        <span>2023</span><span class="meta-sep">·</span><span>24 Frames</span><span class="meta-sep">·</span><span>Architectural Digest</span>
+                                    </div>
+                                </div>
+
+                                <div class="info-slide" data-index="4">
+                                    <div class="info-cat">05 / WEDDINGS</div>
+                                    <h3 class="info-title">Eternal Vows</h3>
+                                    <p class="info-desc">
+                                        Love stories told through a quiet lens. Each wedding album I create is a personal 
+                                        narrative of two souls joining—intimate glances, sacred rituals, tears of joy, 
+                                        and laughter that echoes through generations.
+                                    </p>
+                                    <div class="info-meta">
+                                        <span>2020-2025</span><span class="meta-sep">·</span><span>120+ Weddings</span><span class="meta-sep">·</span><span>Commissioned</span>
+                                    </div>
+                                </div>
+
+                                <div class="info-slide" data-index="5">
+                                    <div class="info-cat">06 / FINE ART</div>
+                                    <h3 class="info-title">Solitude</h3>
+                                    <p class="info-desc">
+                                        A meditative journey through the Himalayan landscape in the silent hours before dawn. 
+                                        Mountains emerge from fog, rivers whisper ancient secrets, and the soul finds 
+                                        its reflection in stillness.
+                                    </p>
+                                    <div class="info-meta">
+                                        <span>2025</span><span class="meta-sep">·</span><span>30 Frames</span><span class="meta-sep">·</span><span>Solo Exhibition</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- GALLERY CONTROLS -->
+                        <div class="gallery-controls" id="galleryControls">
+                            
+                            <div class="controls-left">
+                                <button class="nav-btn nav-prev magnetic-btn" id="prevBtn" aria-label="Previous photograph">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                                    </svg>
+                                </button>
+                                <button class="nav-btn nav-next magnetic-btn" id="nextBtn" aria-label="Next photograph">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="controls-center">
+                                <div class="progress-track" id="progressTrack">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                </div>
+                                <div class="slide-counter">
+                                    <span id="currentSlide">01</span>
+                                    <span class="counter-sep">/</span>
+                                    <span id="totalSlides">06</span>
+                                </div>
+                            </div>
+
+                            <div class="controls-right">
+                                <button class="play-btn magnetic-btn" id="playBtn" aria-label="Pause auto-play">
+                                    <span class="play-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" class="icon-pause">
+                                            <rect x="6" y="5" width="4" height="14"/>
+                                            <rect x="14" y="5" width="4" height="14"/>
+                                        </svg>
+                                        <svg viewBox="0 0 24 24" fill="currentColor" class="icon-play">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </span>
+                                    <span class="play-label" id="playLabel">PAUSE</span>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <!-- THUMBNAIL STRIP -->
+                        <div class="thumbs" id="thumbs">
+                            <button class="thumb active magnetic-img" data-index="0" aria-label="Show Whispers of Light">
+                                <div class="thumb-img-wrap">
+                                    <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Dramatic%20black%20and%20white%20portrait%20photography%20woman%20face%20high%20contrast%20studio%20lighting%20editorial%20fashion%20cinematic&image_size=square" 
+                                         alt="Whispers of Light thumbnail">
+                                    <div class="thumb-overlay"></div>
+                                </div>
+                            </button>
+                            <button class="thumb magnetic-img" data-index="1" aria-label="Show Silhouette in Motion">
+                                <div class="thumb-img-wrap">
+                                    <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Black%20and%20white%20fashion%20editorial%20photography%20elegant%20dress%20movement%20motion%20blur%20dramatic%20studio%20luxury%20monochrome&image_size=square" 
+                                         alt="Silhouette in Motion thumbnail">
+                                    <div class="thumb-overlay"></div>
+                                </div>
+                            </button>
+                            <button class="thumb magnetic-img" data-index="2" aria-label="Show Urban Rhythms">
+                                <div class="thumb-img-wrap">
+                                    <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Black%20and%20white%20urban%20street%20photography%20city%20crowd%20reflections%20pedestrians%20crosswalk%20moody%20atmospheric%20cinematic%20monochrome%20documentary&image_size=square" 
+                                         alt="Urban Rhythms thumbnail">
+                                    <div class="thumb-overlay"></div>
+                                </div>
+                            </button>
+                            <button class="thumb magnetic-img" data-index="3" aria-label="Show Geometry of Light">
+                                <div class="thumb-img-wrap">
+                                    <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Black%20and%20white%20architectural%20photography%20modern%20building%20geometry%20lines%20shadows%20minimalist%20abstract%20monochrome&image_size=square" 
+                                         alt="Geometry of Light thumbnail">
+                                    <div class="thumb-overlay"></div>
+                                </div>
+                            </button>
+                            <button class="thumb magnetic-img" data-index="4" aria-label="Show Eternal Vows">
+                                <div class="thumb-img-wrap">
+                                    <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Dramatic%20black%20and%20white%20wedding%20photography%20couple%20embrace%20silhouette%20golden%20hour%20converted%20monochrome%20emotional&image_size=square" 
+                                         alt="Eternal Vows thumbnail">
+                                    <div class="thumb-overlay"></div>
+                                </div>
+                            </button>
+                            <button class="thumb magnetic-img" data-index="5" aria-label="Show Solitude">
+                                <div class="thumb-img-wrap">
+                                    <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Black%20and%20white%20fine%20art%20landscape%20photography%20mountains%20fog%20misty%20minimalist%20zen%20moody%20atmospheric%20monochrome&image_size=square" 
+                                         alt="Solitude thumbnail">
+                                    <div class="thumb-overlay"></div>
+                                </div>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="footer">
+                <div class="footer-container">
+                    <div class="footer-top">
+                        <div class="footer-brand">
+                            <h2 class="footer-title">LET'S CREATE<br><span class="italic">SOMETHING</span><br>TIMeless.</h2>
+                        </div>
+                        <div class="footer-contacts">
+                            <a href="mailto:nsanjayb@gmail.com" class="footer-email magnetic-btn">
+                                <span>nsanjayb@gmail.com</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                                </svg>
+                            </a>
+                            <a href="tel:+19055882047" class="footer-phone magnetic-btn">
+                                <span>(905) 588-2047</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <div class="footer-left">
+                            <p>© 2026 Sanjay's Lightworks</p>
+                            <p>MISSISSAUGA · CANADA</p>
+                        </div>
+                        <div class="footer-center">
+                            <a href="#" class="social-link magnetic-link">INSTAGRAM</a>
+                            <span class="footer-sep">·</span>
+                            <a href="#" class="social-link magnetic-link">BEHANCE</a>
+                            <span class="footer-sep">·</span>
+                            <a href="#" class="social-link magnetic-link">VOGUE</a>
+                        </div>
+                        <div class="footer-right">
+                            <p>ALL RIGHTS RESERVED</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
