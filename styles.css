@@ -27,7 +27,7 @@
     
     --container-x: clamp(2rem, 5vw, 6rem);
     --container-max: 1800px;
-    --section-py: clamp(6rem, 12vw, 12rem);
+    --section-py: clamp(3rem, 8vw, 8rem);
     
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
