@@ -1455,15 +1455,16 @@ button {
 /* COLOR PALETTE STYLING */
 .color-palette {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     margin-top: 1.5rem;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .color-swatch {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     border: 2px solid var(--color-line-strong);
     transition: transform 0.3s var(--ease-out),
