@@ -761,6 +761,9 @@
             'images/gallery-19.jpg'
         ];
 
+        // On mobile, show fewer images for better performance
+        const imagesToShow = isMobile ? galleryImages.slice(0, 12) : galleryImages;
+
         // Shuffle function
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
@@ -771,13 +774,14 @@
         }
 
         // Shuffle images
-        const shuffledImages = shuffleArray([...galleryImages]);
+        const shuffledImages = shuffleArray([...imagesToShow]);
 
         // Create photo items dynamically
         shuffledImages.forEach((imageSrc, index) => {
             const photoItem = document.createElement('div');
             photoItem.className = 'photo-item reveal-up';
-            photoItem.style.transitionDelay = `${index * 50}ms`;
+            // Faster animation on mobile
+            photoItem.style.transitionDelay = `${index * (isMobile ? 30 : 50)}ms`;
 
             const img = document.createElement('img');
             img.src = imageSrc;
