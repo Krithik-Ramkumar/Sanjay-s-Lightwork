@@ -17,7 +17,7 @@
         initLoader();
         populateNavLabels();
         if (!prefersReducedMotion && !isMobile) {
-            initCustomCursor();
+            // initCustomCursor(); // Removed custom cursor
             initMagneticElements();
             initFloatingShapesParallax();
         }
@@ -733,7 +733,10 @@
         const lightboxImg = document.getElementById('lightboxImg');
         const lightboxClose = document.getElementById('lightboxClose');
 
-        if (!photoGrid || !lightbox) return;
+        if (!photoGrid || !lightbox) {
+            console.log('Gallery elements not found');
+            return;
+        }
 
         // Gallery images
         const galleryImages = [
@@ -780,6 +783,7 @@
             img.src = imageSrc;
             img.alt = `Gallery photo ${index + 1}`;
             img.className = 'photo-img';
+            img.loading = 'lazy';
 
             const overlay = document.createElement('div');
             overlay.className = 'photo-overlay';
@@ -800,6 +804,14 @@
                 document.body.style.overflow = 'hidden';
             });
         });
+
+        // Trigger reveal animations after a short delay
+        setTimeout(() => {
+            const photoItems = document.querySelectorAll('.photo-item');
+            photoItems.forEach(item => {
+                item.classList.add('in');
+            });
+        }, 300);
 
         // Lightbox functionality
         if (lightboxClose) {
