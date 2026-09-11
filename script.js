@@ -31,6 +31,7 @@
         initKeyboardNav();
         initSectionTracking();
         initBookingForm();
+        initPhotoGallery();
     }
 
     /* ========================================================================
@@ -214,7 +215,7 @@
             }
         });
 
-        const sectionNumbers = { home: '01', about: '02', portfolio: '03', book: '04' };
+        const sectionNumbers = { home: '01', about: '02', portfolio: '03', gallery: '04', book: '05' };
 
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
@@ -301,6 +302,7 @@
             home: 'HOME',
             about: 'ABOUT',
             portfolio: 'WORK',
+            gallery: 'GALLERY',
             book: 'BOOK NOW'
         };
         window.addEventListener('active-section', (e) => {
@@ -720,6 +722,109 @@
                 if (btnTextEl) btnTextEl.textContent = 'SUBMIT REQUEST';
             }
         });
+    }
+
+    /* ========================================================================
+       PHOTO GALLERY — Lightbox functionality + Shuffling
+       ======================================================================== */
+    function initPhotoGallery() {
+        const photoGrid = document.getElementById('photoGrid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        if (!photoGrid || !lightbox) return;
+
+        // Gallery images
+        const galleryImages = [
+            'images/gallery-1.jpg',
+            'images/gallery-2.jpg',
+            'images/gallery-3.jpg',
+            'images/gallery-4.jpg',
+            'images/gallery-5.jpg',
+            'images/gallery-6.jpg',
+            'images/gallery-7.jpg',
+            'images/gallery-8.jpg',
+            'images/gallery-9.jpg',
+            'images/gallery-10.jpg',
+            'images/gallery-11.jpg',
+            'images/gallery-12.jpg',
+            'images/gallery-13.jpg',
+            'images/gallery-14.jpg',
+            'images/gallery-15.jpg',
+            'images/gallery-16.jpg',
+            'images/gallery-17.jpg',
+            'images/gallery-18.jpg',
+            'images/gallery-19.jpg'
+        ];
+
+        // Shuffle function
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Shuffle images
+        const shuffledImages = shuffleArray([...galleryImages]);
+
+        // Create photo items dynamically
+        shuffledImages.forEach((imageSrc, index) => {
+            const photoItem = document.createElement('div');
+            photoItem.className = 'photo-item reveal-up';
+            photoItem.style.transitionDelay = `${index * 50}ms`;
+
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.alt = `Gallery photo ${index + 1}`;
+            img.className = 'photo-img';
+
+            const overlay = document.createElement('div');
+            overlay.className = 'photo-overlay';
+
+            const expandIcon = document.createElement('span');
+            expandIcon.className = 'photo-expand-icon';
+            expandIcon.textContent = '+';
+
+            overlay.appendChild(expandIcon);
+            photoItem.appendChild(img);
+            photoItem.appendChild(overlay);
+            photoGrid.appendChild(photoItem);
+
+            // Add click event for lightbox
+            photoItem.addEventListener('click', () => {
+                lightboxImg.src = imageSrc;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Lightbox functionality
+        if (lightboxClose) {
+            lightboxClose.addEventListener('click', closeLightbox);
+        }
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                lightboxImg.src = '';
+            }, 400);
+        }
     }
 
 })();

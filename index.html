@@ -57,8 +57,13 @@
                     <span class="nav-label">Portfolio</span>
                     <span class="nav-underline"></span>
                 </a>
-                <a href="#book" class="nav-link magnetic-link" data-nav="book">
+                <a href="#gallery" class="nav-link magnetic-link" data-nav="gallery">
                     <span class="nav-num">04</span>
+                    <span class="nav-label">Gallery</span>
+                    <span class="nav-underline"></span>
+                </a>
+                <a href="#book" class="nav-link magnetic-link" data-nav="book">
+                    <span class="nav-num">05</span>
                     <span class="nav-label">Book Now</span>
                     <span class="nav-underline"></span>
                 </a>
@@ -78,7 +83,8 @@
             <a href="#home" class="mobile-menu-link" data-nav="home"><span class="mm-num">01</span><span class="mm-text">Home</span></a>
             <a href="#about" class="mobile-menu-link" data-nav="about"><span class="mm-num">02</span><span class="mm-text">About</span></a>
             <a href="#portfolio" class="mobile-menu-link" data-nav="portfolio"><span class="mm-num">03</span><span class="mm-text">Portfolio</span></a>
-            <a href="#book" class="mobile-menu-link" data-nav="book"><span class="mm-num">04</span><span class="mm-text">Book Now</span></a>
+            <a href="#gallery" class="mobile-menu-link" data-nav="gallery"><span class="mm-num">04</span><span class="mm-text">Gallery</span></a>
+            <a href="#book" class="mobile-menu-link" data-nav="book"><span class="mm-num">05</span><span class="mm-text">Book Now</span></a>
             <div class="mobile-menu-footer">
                 <p>© 2026 Sanjay's Lightworks</p>
             </div>
@@ -90,6 +96,7 @@
         <div class="progress-dot" data-target="home"></div>
         <div class="progress-dot" data-target="about"></div>
         <div class="progress-dot" data-target="portfolio"></div>
+        <div class="progress-dot" data-target="gallery"></div>
         <div class="progress-dot" data-target="book"></div>
     </div>
 
@@ -569,6 +576,43 @@
         </section>
 
 
+        <!-- ==================== GALLERY SECTION ==================== -->
+        <section id="gallery" class="section section-gallery" data-section="gallery">
+            
+            <div class="gallery-container">
+
+                <!-- SECTION HEADER -->
+                <div class="section-header">
+                    <div class="section-num reveal-text">05 / GALLERY</div>
+                    <h2 class="section-title">
+                        <span class="st-line"><span class="st-word reveal-word">THE</span></span>
+                        <span class="st-line"><span class="st-word reveal-word italic">collection</span></span>
+                        <span class="st-line"><span class="st-word reveal-word">GALLERY</span></span>
+                    </h2>
+                </div>
+
+                <!-- PHOTO GRID -->
+                <div class="photo-grid" id="photoGrid">
+                    <!-- Photos will be dynamically loaded and shuffled -->
+                </div>
+
+            </div>
+
+            <!-- LIGHTBOX OVERLAY -->
+            <div class="lightbox" id="lightbox">
+                <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6L6 18M6 6l12 12"/>
+                    </svg>
+                </button>
+                <div class="lightbox-content">
+                    <img src="" alt="Expanded view" class="lightbox-img" id="lightboxImg">
+                </div>
+            </div>
+
+        </section>
+
+
         <!-- ==================== BOOK NOW SECTION ==================== -->
         <section id="book" class="section section-book" data-section="book">
 
@@ -576,7 +620,7 @@
 
                 <!-- SECTION HEADER -->
                 <div class="section-header">
-                    <div class="section-num reveal-text">04 / BOOK NOW</div>
+                    <div class="section-num reveal-text">05 / BOOK NOW</div>
                     <h2 class="section-title">
                         <span class="st-line"><span class="st-word reveal-word">RESERVE</span></span>
                         <span class="st-line"><span class="st-word reveal-word italic">your</span></span>
