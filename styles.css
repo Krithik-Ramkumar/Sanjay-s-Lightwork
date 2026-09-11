@@ -388,7 +388,7 @@ button {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: clamp(2rem, 4vw, 4rem);
+    gap: clamp(1.5rem, 3vw, 3rem);
 }
 
 .nav-link {
