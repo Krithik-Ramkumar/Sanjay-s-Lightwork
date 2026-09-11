@@ -689,8 +689,8 @@ button {
 /* ---------- SECTION HEADERS ---------- */
 .section-header {
     max-width: var(--container-max);
-    margin: 0 auto 4rem;
-    padding-top: 4rem;
+    margin: 0 auto 2rem;
+    padding-top: 2rem;
 }
 
 .section-num {
