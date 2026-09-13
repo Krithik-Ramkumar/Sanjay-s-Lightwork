@@ -31,7 +31,6 @@
         initKeyboardNav();
         initSectionTracking();
         initBookingForm();
-        initPhotoGallery();
     }
 
     /* ========================================================================
@@ -45,7 +44,7 @@
 
         let progress = 0;
         const interval = setInterval(() => {
-            progress += Math.random() * 8 + 2;
+            progress += Math.random() * 12 + 3;
             if (progress >= 100) {
                 progress = 100;
                 clearInterval(interval);
@@ -54,12 +53,12 @@
                 setTimeout(() => {
                     loader.classList.add('hidden');
                     afterLoadReveal();
-                }, 400);
+                }, 200);
             } else {
                 fill.style.width = progress + '%';
                 percentage.textContent = Math.floor(progress) + '%';
             }
-        }, 60);
+        }, 30);
     }
 
     function afterLoadReveal() {
@@ -215,7 +214,7 @@
             }
         });
 
-        const sectionNumbers = { home: '01', about: '02', portfolio: '03', gallery: '04', book: '05' };
+        const sectionNumbers = { home: '01', about: '02', portfolio: '03', book: '04' };
 
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
@@ -302,7 +301,6 @@
             home: 'HOME',
             about: 'ABOUT',
             portfolio: 'WORK',
-            gallery: 'GALLERY',
             book: 'BOOK NOW'
         };
         window.addEventListener('active-section', (e) => {
@@ -722,125 +720,6 @@
                 if (btnTextEl) btnTextEl.textContent = 'SUBMIT REQUEST';
             }
         });
-    }
-
-    /* ========================================================================
-       PHOTO GALLERY — Lightbox functionality + Shuffling
-       ======================================================================== */
-    function initPhotoGallery() {
-        const photoGrid = document.getElementById('photoGrid');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const lightboxClose = document.getElementById('lightboxClose');
-
-        if (!photoGrid || !lightbox) {
-            console.log('Gallery elements not found');
-            return;
-        }
-
-        // Gallery images
-        const galleryImages = [
-            'images/gallery-1.jpg',
-            'images/gallery-2.jpg',
-            'images/gallery-3.jpg',
-            'images/gallery-4.jpg',
-            'images/gallery-5.jpg',
-            'images/gallery-6.jpg',
-            'images/gallery-7.jpg',
-            'images/gallery-8.jpg',
-            'images/gallery-9.jpg',
-            'images/gallery-10.jpg',
-            'images/gallery-11.jpg',
-            'images/gallery-12.jpg',
-            'images/gallery-13.jpg',
-            'images/gallery-14.jpg',
-            'images/gallery-15.jpg',
-            'images/gallery-16.jpg',
-            'images/gallery-17.jpg',
-            'images/gallery-18.jpg',
-            'images/gallery-19.jpg'
-        ];
-
-        // On mobile, show fewer images for better performance
-        const imagesToShow = isMobile ? galleryImages.slice(0, 12) : galleryImages;
-
-        // Shuffle function
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
-
-        // Shuffle images
-        const shuffledImages = shuffleArray([...imagesToShow]);
-
-        // Create photo items dynamically
-        shuffledImages.forEach((imageSrc, index) => {
-            const photoItem = document.createElement('div');
-            photoItem.className = 'photo-item reveal-up';
-            // Faster animation on mobile
-            photoItem.style.transitionDelay = `${index * (isMobile ? 30 : 50)}ms`;
-
-            const img = document.createElement('img');
-            img.src = imageSrc;
-            img.alt = `Gallery photo ${index + 1}`;
-            img.className = 'photo-img';
-            img.loading = 'lazy';
-
-            const overlay = document.createElement('div');
-            overlay.className = 'photo-overlay';
-
-            const expandIcon = document.createElement('span');
-            expandIcon.className = 'photo-expand-icon';
-            expandIcon.textContent = '+';
-
-            overlay.appendChild(expandIcon);
-            photoItem.appendChild(img);
-            photoItem.appendChild(overlay);
-            photoGrid.appendChild(photoItem);
-
-            // Add click event for lightbox
-            photoItem.addEventListener('click', () => {
-                lightboxImg.src = imageSrc;
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        // Trigger reveal animations after a short delay
-        setTimeout(() => {
-            const photoItems = document.querySelectorAll('.photo-item');
-            photoItems.forEach(item => {
-                item.classList.add('in');
-            });
-        }, 300);
-
-        // Lightbox functionality
-        if (lightboxClose) {
-            lightboxClose.addEventListener('click', closeLightbox);
-        }
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-                closeLightbox();
-            }
-        });
-
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-            setTimeout(() => {
-                lightboxImg.src = '';
-            }, 400);
-        }
     }
 
 })();

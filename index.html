@@ -54,7 +54,7 @@
                     <span class="nav-label">Portfolio</span>
                     <span class="nav-underline"></span>
                 </a>
-                <a href="#gallery" class="nav-link magnetic-link" data-nav="gallery">
+                <a href="gallery.html" class="nav-link magnetic-link">
                     <span class="nav-num">04</span>
                     <span class="nav-label">Gallery</span>
                     <span class="nav-underline"></span>
@@ -80,7 +80,7 @@
             <a href="#home" class="mobile-menu-link" data-nav="home"><span class="mm-num">01</span><span class="mm-text">Home</span></a>
             <a href="#about" class="mobile-menu-link" data-nav="about"><span class="mm-num">02</span><span class="mm-text">About</span></a>
             <a href="#portfolio" class="mobile-menu-link" data-nav="portfolio"><span class="mm-num">03</span><span class="mm-text">Portfolio</span></a>
-            <a href="#gallery" class="mobile-menu-link" data-nav="gallery"><span class="mm-num">04</span><span class="mm-text">Gallery</span></a>
+            <a href="gallery.html" class="mobile-menu-link"><span class="mm-num">04</span><span class="mm-text">Gallery</span></a>
             <a href="#book" class="mobile-menu-link" data-nav="book"><span class="mm-num">05</span><span class="mm-text">Book Now</span></a>
             <div class="mobile-menu-footer">
                 <p>© 2026 Sanjay's Lightworks</p>
@@ -93,7 +93,6 @@
         <div class="progress-dot" data-target="home"></div>
         <div class="progress-dot" data-target="about"></div>
         <div class="progress-dot" data-target="portfolio"></div>
-        <div class="progress-dot" data-target="gallery"></div>
         <div class="progress-dot" data-target="book"></div>
     </div>
 
@@ -164,8 +163,8 @@
                     </div>
                     <div class="hero-bottom-right">
                         <div class="hero-cta-wrapper">
-                            <a href="#portfolio" class="btn btn-primary magnetic-btn" data-nav="portfolio">
-                                <span class="btn-text">VIEW PORTFOLIO</span>
+                            <a href="gallery.html" class="btn btn-primary magnetic-btn">
+                                <span class="btn-text">VIEW GALLERY</span>
                                 <span class="btn-arrow">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -258,7 +257,7 @@
 
                         <!-- ABOUT CTA -->
                         <div class="about-cta reveal-up">
-                            <a href="#portfolio" class="btn btn-outline magnetic-btn" data-nav="portfolio">
+                            <a href="gallery.html" class="btn btn-outline magnetic-btn">
                                 <span class="btn-text">EXPLORE THE WORK</span>
                                 <span class="btn-arrow">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -573,43 +572,6 @@
         </section>
 
 
-        <!-- ==================== GALLERY SECTION ==================== -->
-        <section id="gallery" class="section section-gallery" data-section="gallery">
-            
-            <div class="gallery-container">
-
-                <!-- SECTION HEADER -->
-                <div class="section-header">
-                    <div class="section-num reveal-text">05 / GALLERY</div>
-                    <h2 class="section-title">
-                        <span class="st-line"><span class="st-word reveal-word">THE</span></span>
-                        <span class="st-line"><span class="st-word reveal-word italic">collection</span></span>
-                        <span class="st-line"><span class="st-word reveal-word">GALLERY</span></span>
-                    </h2>
-                </div>
-
-                <!-- PHOTO GRID -->
-                <div class="photo-grid" id="photoGrid">
-                    <!-- Photos will be dynamically loaded and shuffled -->
-                </div>
-
-            </div>
-
-            <!-- LIGHTBOX OVERLAY -->
-            <div class="lightbox" id="lightbox">
-                <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 6L6 18M6 6l12 12"/>
-                    </svg>
-                </button>
-                <div class="lightbox-content">
-                    <img src="" alt="Expanded view" class="lightbox-img" id="lightboxImg">
-                </div>
-            </div>
-
-        </section>
-
-
         <!-- ==================== BOOK NOW SECTION ==================== -->
         <section id="book" class="section section-book" data-section="book">
 
@@ -683,18 +645,36 @@
                             <h2 class="footer-title">LET'S CREATE<br><span class="italic">SOMETHING</span><br>TIMeless.</h2>
                         </div>
                         <div class="footer-contacts">
-                            <a href="mailto:nsanjayb@gmail.com" class="footer-email magnetic-btn">
-                                <span>nsanjayb@gmail.com</span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
-                                </svg>
-                            </a>
-                            <a href="tel:+19055882047" class="footer-phone magnetic-btn">
-                                <span>(905) 588-2047</span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-                                </svg>
-                            </a>
+                            <div class="footer-contact-group">
+                                <p class="footer-contact-label">Lead Photographer</p>
+                                <a href="mailto:nsanjayb@gmail.com" class="footer-email magnetic-btn">
+                                    <span>nsanjayb@gmail.com</span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                                    </svg>
+                                </a>
+                                <a href="tel:+19055882047" class="footer-phone magnetic-btn">
+                                    <span>(905) 588-2047</span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="footer-contact-group">
+                                <p class="footer-contact-label">Developer</p>
+                                <a href="mailto:krithikr914@gmail.com" class="footer-email magnetic-btn">
+                                    <span>krithikr914@gmail.com</span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                                    </svg>
+                                </a>
+                                <a href="tel:+14375808700" class="footer-phone magnetic-btn">
+                                    <span>(437) 580-8700</span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="footer-bottom">
